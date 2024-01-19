@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ODM FileOID="Exposure as Collected CRF" FileType="Snapshot" CreationDateTime="2021-02-12T18:02:18-07:00" ODMVersion="1.3.2" Originator="Formedix" SourceSystem="Data Acquisition Designer" SourceSystemVersion="4.8.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns="http://www.cdisc.org/ns/odm/v1.3">
+	<Study OID="Exposure as Collected">
+		<GlobalVariables>
+			<StudyName>Exposure as Collected CRF</StudyName>
+			<StudyDescription>Exposure as Collected CRF</StudyDescription>
+			<ProtocolName>Exposure as Collected CRF</ProtocolName>
+		</GlobalVariables>
+		<BasicDefinitions/>
+		<MetaDataVersion OID="Exposure as Collected CRF" Name="Exposure as Collected">
+			<FormDef OID="EC" Name="Form EC - Exposure as Collected" Repeating="No">
+				<Description>
+					<TranslatedText xml:lang="en">EC - Exposure as Collected</TranslatedText>
+				</Description>
+				<ItemGroupRef ItemGroupOID="CDASH_2-1_IG_4" Mandatory="Yes" OrderNumber="1"/>
+			</FormDef>
+			<ItemGroupDef OID="CDASH_2-1_IG_4" Name="EC - Exposure as Collected" Repeating="No" Domain="EC">
+				<Description>
+					<TranslatedText xml:lang="en">EC - Exposure as Collected</TranslatedText>
+				</Description>
+				<ItemRef ItemOID="IT.ECREFID" Mandatory="No" OrderNumber="1"/>
+				<ItemRef ItemOID="IT.ECSTDAT" Mandatory="Yes" OrderNumber="2"/>
+				<ItemRef ItemOID="IT.ECENDAT" Mandatory="No" OrderNumber="3"/>
+				<ItemRef ItemOID="IT.ECDSTXT" Mandatory="No" OrderNumber="4"/>
+				<ItemRef ItemOID="IT.ECDOSU" Mandatory="No" OrderNumber="5"/>
+				<ItemRef ItemOID="IT.ECDOSFRQ" Mandatory="No" OrderNumber="6"/>
+				<ItemRef ItemOID="IT.ECROUTE" Mandatory="No" OrderNumber="7"/>
+				<ItemRef ItemOID="IT.ECDOSADJ" Mandatory="No" OrderNumber="8"/>
+				<ItemRef ItemOID="IT.ECADJ" Mandatory="No" OrderNumber="9"/>
+				<ItemRef ItemOID="IT.ECITRPYN" Mandatory="No" OrderNumber="10"/>
+				<ItemRef ItemOID="IT.ECCINTD" Mandatory="No" OrderNumber="11"/>
+				<ItemRef ItemOID="IT.ECCINTDU" Mandatory="No" OrderNumber="12"/>
+				<ItemRef ItemOID="IT.ECTRTCMP" Mandatory="No" OrderNumber="13"/>
+			</ItemGroupDef>
+			<ItemDef OID="IT.ECSTDAT" Name="ECSTDAT" DataType="date">
+				<Description>
+					<TranslatedText xml:lang="en">ECSTDAT</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the ([intended/planned/actual]) ([study treatment/dose])
+    (start) date?</TranslatedText>
+					<TranslatedText xml:lang="en">Start Date</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="(Start) Date"/>
+				<Alias Context="completionInstructions" Name="Record the start date of the study treatment administration using this format (DD-MON-YYYY)."/>
+				<Alias Context="implementationNotes" Name="Date when constant dosing interval of the study treatment started or single administration occurred. When collecting the date for an individual dose, the word &quot;start&quot; may be omitted from the Question Text and Prompt. When ECMOOD is collected and ECMOOD is &quot;SCHEDULED&quot;, use &quot;intended&quot; in the question text and prompt. When ECMOOD is collected and ECMOOD is &quot;PERFORMED&quot;, use &quot;actual&quot; in the question text and prompt."/>
+				<Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH START DATE and TIME components and populate the SDTMIG variable ECSTDTC in ISO 8601 format."/>
+				<Alias Name="ECSTDAT" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECDSTXT" Name="ECDSTXT" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECDSTXT</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the dose (per administration) (of [study treatment/dose])?</TranslatedText>
+					<TranslatedText xml:lang="en">Dose</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="Dose"/>
+				<Alias Context="completionInstructions" Name="Record the dose or amount of study treatment that was administered to/taken by the subject in the period recorded; from the start date/time to the end date/time inclusive."/>
+				<Alias Context="implementationNotes" Name="Dose or amount taken for single administration of study treatment or per constant dosing interval recorded. Dose must be collected if it cannot be determined via other methods (e.g., from diary data, drug accountability data, protocol). Care should be taken when mapping ECDSTXT. The data collected in this dose text-format field should be separated or mapped to either ECDOSE if numeric or ECDOSTXT if text."/>
+				<Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. The data collected in this dose text-format field should be mapped to either ECDOSE if numeric or ECDOSTXT if text."/>
+				<Alias Name="ECDSTXT" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECROUTE" Name="ECROUTE" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECROUTE</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the route of administration (of the [study treatment/dose])?</TranslatedText>
+					<TranslatedText xml:lang="en">Route</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="CL.C66729.ROUTE.ECROUTE"/>
+				<Alias Context="prompt" Name="Route"/>
+				<Alias Context="completionInstructions" Name="Record the route of administration (e.g., IV, ORAL, TRANSDERMAL) or enter the appropriate code from the code list."/>
+				<Alias Context="implementationNotes" Name="This may be collected if it cannot be determined via other methods (e.g., from protocol) or if there are multiple options."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="ECROUTE" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECITRPYN" Name="ECITRPYN" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECITRPYN</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText xml:lang="en">Was the study treatment interrupted?</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="CL.C66742.NY.NY"/>
+				<Alias Context="prompt" Name="[(Study) Treatment / Dose] Interrupted"/>
+				<Alias Context="completionInstructions" Name="Record if there was an interruption in the study treatment or dosing."/>
+				<Alias Context="implementationNotes" Name="The intent/purpose of collecting this field is to help with data cleaning and monitoring when the actual duration of the exposure is collected using the CDASH field ECCINTD. In some situations, if the actual duration of the interruption is not collected, or not derived, this information could be submitted in a SUPPEC.QVAL dataset where SUPPEC.QNAM = &quot;ECITRPYN&quot; and SUPPEC.QLABEL = &quot;Exposure Interrupted&quot;."/>
+				<Alias Context="mappingInstructions" Name="Does not map to an SDTMIG variable. The SDTMIG Annotated CRF is annotated to indicate that this field is NOT SUBMITTED."/>
+				<Alias Name="ECITRPYN" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECTRTCMP" Name="ECTRTCMP" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECTRTCMP</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText xml:lang="en">Did the subject complete the full course of study treatment?</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="CL.C66742.NY.NY"/>
+				<Alias Context="prompt" Name="Completed Treatment"/>
+				<Alias Context="completionInstructions" Name="Select either Yes or No to indicate whether subject has completed the full course of treatment."/>
+				<Alias Context="implementationNotes" Name="Depending on how the study treatment details are collected via the CRF/eCRF, it may be possible to derive those data if the regimen data are collected."/>
+				<Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. This information could be submitted in a SUPPEC dataset as the value of SUPPEC.QVAL where SUPPEC.QNAM = &quot;ECTRTCMP&quot; and SUPPEC.QLABEL =&quot;Completed Treatment&quot;. Refer to the current SDTM and SDTMIG for instructions on placement of non-standard variables in SDTM domains."/>
+				<Alias Name="ECTRTCMP" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECCINTDU" Name="ECCINTDU" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECCINTDU</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText xml:lang="en">What was the interruption duration unit?</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="CL.C71620.UNIT.ECCINTDU"/>
+				<Alias Context="prompt" Name="(Interruption Duration) Unit"/>
+				<Alias Context="completionInstructions" Name="Record the unit (e.g., MINUTES, HOURS, DAYS) for the duration of treatment interruption."/>
+				<Alias Context="implementationNotes" Name="The unit should be collected as a qualifier to the number for duration."/>
+				<Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. This information could be submitted in a SUPPEC dataset as the value of SUPPEC.QVAL where SUPPEC.QNAM = &quot;ECITRPD&quot; and SUPPEC.QLABEL= &quot;Interruption Duration&quot;. Concatenate the collected treatment interruption duration and the duration unit components and create ECITRPD using ISO 8601 Period format. Refer to the current SDTM and SDTMIG for instructions on placement of non-standard variables in SDTM domains."/>
+				<Alias Name="ECCINTDU" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECDOSFRQ" Name="ECDOSFRQ" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECDOSFRQ</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the frequency of [study treatment/dose] dosing?</TranslatedText>
+					<TranslatedText xml:lang="en">Frequency</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="CL.C71113.FREQ.ECDOSFRQ"/>
+				<Alias Context="prompt" Name="Frequency"/>
+				<Alias Context="completionInstructions" Name="Record the frequency the study treatment was administered for a defined period of time (e.g., BID, QID, TID)."/>
+				<Alias Context="implementationNotes" Name="This may be collected if it cannot be determined from other sources or if there are multiple options. When possible, the options for dose/amount frequency are pre-printed on the CRF. When collected, the recommendation is to collect dosing information in separate fields (e.g., ECDOSE, ECDOSEU, ECDOSFRQ) for specific and consistent data collection and to enable programmatically utilizing these data."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="ECDOSFRQ" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECENDAT" Name="ECENDAT" DataType="date">
+				<Description>
+					<TranslatedText xml:lang="en">ECENDAT</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the ([intended/planned/actual]) ([study treatment/dose])
+    (end) date?</TranslatedText>
+					<TranslatedText xml:lang="en">End Date</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="(End) Date"/>
+				<Alias Context="completionInstructions" Name="Record the end date of the study treatment administration using this format (DD-MON-YYYY)."/>
+				<Alias Context="implementationNotes" Name="Date when study treatment period stopped.If start date and end date are not expected to be on the same date, the collection of the end date is required. If the study design indicates that the start and end date are on the same day, the collection of the end date is not required because it can be assigned to be equal to the start date."/>
+				<Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH END DATE and TIME components and populate the SDTMIG variable ECENDTC in ISO 8601 format."/>
+				<Alias Name="ECENDAT" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECDOSADJ" Name="ECDOSADJ" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECDOSADJ</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText xml:lang="en">Was the dose adjusted?</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="CL.C66742.NY.NY"/>
+				<Alias Context="prompt" Name="(Dose) Adjusted"/>
+				<Alias Context="completionInstructions" Name="Select either Yes or No to indicate whether there was a change in dosing."/>
+				<Alias Context="implementationNotes" Name="Typically, the intent/purpose of collecting this field is to help with data cleaning and monitoring as it provides a definitive response regarding any dose changes. It provides verification that the associate field on the CRF (ECADJ) was deliberately left blank. However, the sponsor may collect whether the dose was adjusted, without collecting the reason for the change. When using ECMOOD, this field should not be used."/>
+				<Alias Context="mappingInstructions" Name="When ECADJ is collected, does not map to an SDTMIG variable. The SDTM Annotated CRF is annotated to indicate that this field is NOT SUBMITTED. When ECADJ is not collected, the sponsor may submit this variable in SUPPEC."/>
+				<Alias Name="ECDOSADJ" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECDOSU" Name="ECDOSU" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECDOSU</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What were the units for the dose?</TranslatedText>
+					<TranslatedText xml:lang="en">Units</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="CL.C71620.UNIT.ECDOSU"/>
+				<Alias Context="prompt" Name="Units"/>
+				<Alias Context="completionInstructions" Name="Record the unit of dose or amount taken per period recorded (e.g., ng, mg, mg/kg)."/>
+				<Alias Context="implementationNotes" Name="Unit of dose or amount taken per constant dosing interval recorded. Dose unit must be collected if it cannot be determined via other methods (e.g., determined from protocol, randomization data). The unit should be preprinted on the CRF or a field provided on the CRF to capture it. A CDASH Subset Controlled Terminology Codelist Name is available for dose and volume units. In blinded trials, the collected unit may be tablet, capsule, etc., since the actual unit is also blinded."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="ECDOSU" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECADJ" Name="ECADJ" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECADJ</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText xml:lang="en">What was the reason the dose was adjusted?</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="Reason Adjusted"/>
+				<Alias Context="completionInstructions" Name="If there was a change in dosing, record the reason for change."/>
+				<Alias Context="implementationNotes" Name="Captures the reason the dose was changed or modified. The reason may be chosen from a sponsor-defined list (e.g., adverse event, insufficient response) or entered as free text. May be used for variations from protocol-specified doses, or changes from expected doses. Used only when an adjustment is represented in EX dataset."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="ECADJ" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECREFID" Name="ECREFID" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECREFID</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What is the[study treatment/dose] label identifier?</TranslatedText>
+					<TranslatedText xml:lang="en">Study Treatment Label Identifier</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="[Study Treatment] Label Identifier"/>
+				<Alias Context="completionInstructions" Name="Record treatment label identifier."/>
+				<Alias Context="implementationNotes" Name="This packaging identifier (e.g., kit number, bottle label, vial identifier) may be collected in different ways (e.g., affixing label onto CRF, scanning a bar code). For some study dosing regimens, greater granularity for treatment identifiers may be needed. In this situation, sponsors may need to use additional variables."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="ECREFID" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="IT.ECCINTD" Name="ECCINTD" DataType="text" Length="8">
+				<Description>
+					<TranslatedText xml:lang="en">ECCINTD</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText xml:lang="en">What was the duration of the treatment
+    interruption?</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="(Interruption) Duration"/>
+				<Alias Context="completionInstructions" Name="Record the duration of treatment interruption."/>
+				<Alias Context="implementationNotes" Name="This field is used to collect the duration of treatment interruption. In some situations, the duration of the interruption may not be collected but calculated from the treatment start and end times recorded elsewhere in the CRF."/>
+				<Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. This information could be submitted in a SUPPEC dataset as the value of SUPPEC.QVAL where SUPPEC.QNAM=&quot;ECITRPD&quot; and SUPPEC.QLABEL= &quot;Interruption Duration&quot;. Concatenate the collected treatment interruption duration and the duration unit components and create ECITRPD using ISO 8601 Period format. Refer to the current SDTM and SDTMIG for instructions on placement of non-standard variables in SDTM domains."/>
+				<Alias Name="ECCINTD" Context="CDASH"/>
+			</ItemDef>
+			<CodeList OID="CL.C71113.FREQ.ECDOSFRQ" Name="Frequency" DataType="text">
+				<Description>
+					<TranslatedText>The terminology that includes terms pertaining to frequency within CDISC.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="PRN" OrderNumber="1">
+					<Decode>
+						<TranslatedText>As Needed</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="QID" OrderNumber="2">
+					<Decode>
+						<TranslatedText>4 Times per Day</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="TID" OrderNumber="3">
+					<Decode>
+						<TranslatedText>Three Times Daily</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="BID" OrderNumber="4">
+					<Decode>
+						<TranslatedText>Twice Daily</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="QD" OrderNumber="5">
+					<Decode>
+						<TranslatedText>Daily</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="QOD" OrderNumber="6">
+					<Decode>
+						<TranslatedText>Every Other Day</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="QM" OrderNumber="7">
+					<Decode>
+						<TranslatedText>Every Month</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="CL.C66729.ROUTE.ECROUTE" Name="Route of Administration Response" DataType="text">
+				<Description>
+					<TranslatedText>A terminology codelist relevant to the course by which a substance is administered in order to reach the site of action in the body.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="INTRALESIONAL" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Intralesional</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="INTRAMUSCULAR" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Intramuscular</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="INTRAOCULAR" OrderNumber="3">
+					<Decode>
+						<TranslatedText>Intraocular</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="INTRAPERITONEAL" OrderNumber="4">
+					<Decode>
+						<TranslatedText>Intraperitoneal</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="NASAL" OrderNumber="5">
+					<Decode>
+						<TranslatedText>Nasal</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="ORAL" OrderNumber="6">
+					<Decode>
+						<TranslatedText>Oral</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="RECTAL" OrderNumber="7">
+					<Decode>
+						<TranslatedText>Rectal</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="RESPIRATORY (INHALATION)" OrderNumber="8">
+					<Decode>
+						<TranslatedText>Respiratory (Inhalation)</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="SUBCUTANEOUS" OrderNumber="9">
+					<Decode>
+						<TranslatedText>Subcutaneous</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="TOPICAL" OrderNumber="10">
+					<Decode>
+						<TranslatedText>Topical</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="TRANSDERMAL" OrderNumber="11">
+					<Decode>
+						<TranslatedText>Transdermal</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="VAGINAL" OrderNumber="12">
+					<Decode>
+						<TranslatedText>Vaginal</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="CL.C71620.UNIT.ECCINTDU" Name="Unit" DataType="text">
+				<Description>
+					<TranslatedText>Terminology codelist used for units within CDISC.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="MINUTES" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Minutes</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="HOURS" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Hours</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="DAYS" OrderNumber="3">
+					<Decode>
+						<TranslatedText>Days</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="CL.C66742.NY.NY" Name="No Yes Response Only" DataType="text">
+				<Description>
+					<TranslatedText>A term that is used to indicate a question with permissible values of yes/no/unknown/not applicable.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="N" OrderNumber="1">
+					<Decode>
+						<TranslatedText>No</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="Y" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Yes</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="CL.C71620.UNIT.ECDOSU" Name="Unit" DataType="text">
+				<Description>
+					<TranslatedText>Terminology codelist used for units within CDISC.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="CAPSULE" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Capsule</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="g" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Gram</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="IU" OrderNumber="3">
+					<Decode>
+						<TranslatedText>International Unit</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="ug" OrderNumber="4">
+					<Decode>
+						<TranslatedText>Microgram</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="mg" OrderNumber="5">
+					<Decode>
+						<TranslatedText>Milligram</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="mL" OrderNumber="6">
+					<Decode>
+						<TranslatedText>Mililiter</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="PUFF" OrderNumber="7">
+					<Decode>
+						<TranslatedText>Puff</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="TABLET" OrderNumber="8">
+					<Decode>
+						<TranslatedText>Tablet</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+		</MetaDataVersion>
+	</Study>
+</ODM>
