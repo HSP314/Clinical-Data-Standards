@@ -26,5 +26,9 @@ Data Standards for Clinical Trial and Programming
 #### SEND (Standard for the Exchange of Nonclinical Data (SEND): 
 ####    https://evs.nci.nih.gov/ftp1/CDISC/SEND/
 
+# Ensuring Quality
+#### Quality Control and Validation – More than Just PROC COMPARE by Evgeny Starostin and Michael Rimler
+#### https://www.lexjansen.com/phuse/2019/pp/PP08.pdf
+
 
 
